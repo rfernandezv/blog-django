@@ -4,8 +4,9 @@ from .models import Post
 
 
 def post_list(request):
-    #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-	posts = Post.objects.all()
+    posts = Post.objects.order_by('published_date')
+	#me = User.objects.get(username='rfernandezv')
+	#posts = Post.objects.filter(author=me)
     return render(request, 'blog/post_list.html', {'posts': posts})
 	
 def post_detail(request, pk):
